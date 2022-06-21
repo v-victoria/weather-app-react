@@ -1,0 +1,36 @@
+.SearchRow button {
+  position: relative;
+  top: -4.8vmin;
+  left: 34vmin;
+  padding: 0 0 0 0.5vmin;
+  font-size: 3em;
+  background: none;
+  border: none;
+}
+.SearchRow button:hover {
+  color: #7fb5ff;
+}
+
+.SearchRow .city-example-col {
+  padding-top: 1.8vmin;
+  font-size: 2.8em;
+  text-align: center;
+}
+.SearchRow .city-example {
+  padding: 0 1.8vmin;
+}
+.SearchRow .city-example:hover {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.SearchRow .search-input {
+  width: 39vmin;
+  height: 5.5vmin;
+  margin-top: 1vmin;
+  padding: 0 6vmin 0 3vmin;
+  font-size: 2.6em;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3vmin;
+}

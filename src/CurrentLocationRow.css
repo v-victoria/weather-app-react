@@ -1,0 +1,14 @@
+/* Location Row */
+
+.CurrentLocationRow .current-location-icon {
+  padding: 3.2vmin 0 0 4vmin;
+}
+.CurrentLocationRow .current-location-text {
+  padding: 0 0 1vmin 1vmin;
+  align-self: end;
+  line-height: 3.5vmin;
+}
+.CurrentLocationRow .time {
+  padding: 0 0 0.2vmin 2.5vmin;
+  align-self: end;
+}

@@ -1,0 +1,31 @@
+.CurrentTemperatureCol hr {
+  margin: 0;
+}
+
+.CurrentTemperatureCol .description {
+  margin-left: 2vmin;
+  text-transform: capitalize;
+}
+
+.CurrentTemperatureCol .tempeture {
+  max-width: fit-content;
+  font-size: 6em;
+  line-height: 1em;
+}
+.CurrentTemperatureCol .degree {
+  max-width: fit-content;
+  margin-top: 2vmin;
+  font-size: 1.7em;
+}
+
+.CurrentTemperatureCol .not-select-degree {
+  color: #7f7e7e;
+  text-decoration: none;
+}
+.CurrentTemperatureCol .not-select-degree:hover {
+  cursor: pointer;
+}
+
+.CurrentTemperatureCol .select-degree {
+  text-decoration: none;
+}

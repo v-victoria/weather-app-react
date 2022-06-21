@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import WeatherAppBlock from "./WeatherAppBlock";
+
+import "./App.css";
+import "./themes.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <WeatherAppBlock />
+      <div className="open-source-code-link">
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/v-victoria/Weather-App-SheCodes"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Open-source code
         </a>
-      </header>
+        , by Victoria Martynenko
+      </div>
     </div>
   );
 }

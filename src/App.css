@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+span {
+  padding: 0 0 0 0.5vmin;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-background {
+  width: 88vmin;
+  height: 68vmin;
+  margin: 1vmin auto;
+  font-size: 0.95vmin;
+  font-family: "Source Sans Pro", Tahoma;
+  box-shadow: inset 3px 3px 5px 0 rgb(255 255 255 / 25%),
+    inset -3px -3px 5px 0 rgb(1 30 111 / 13%), 0 0 8px 1px rgb(1 30 111 / 25%);
+  border-radius: 15px;
+}
+.open-source-code-link {
+  width: 88vmin;
+  margin: 1vmin auto;
+  font-size: 1.7vmin;
+  font-family: "Source Sans Pro", Tahoma;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.line {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.CurrentLocationRow {
+  height: 9vmin;
+  font-size: 3.7em;
+  border-radius: 15px 15px 0 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Current Weather Row */
+.CurrentWeatherRow {
+  height: 25vmin;
+  margin: 3vmin 2vmin 2vmin 2vmin;
+  font-size: 3.4em;
 }
+
+.CurrentTemperatureCol,
+.CurrentDetailsCol {
+  margin: 1vmin;
+  font-weight: 600;
+}
+
+.current-weather-img {
+  display: block;
+  position: relative;
+  top: -0.8vmin;
+  max-height: 25vmin;
+  margin: 0 auto;
+}
+
+/* Dayly Forecast Row */
+.DaylyForecastRow {
+  height: 18vmin;
+  margin: 0 1vmin;
+  font-size: 3.5em;
+}
+
+/* Search Row */
+.SearchRow {
+  margin: 1vmin auto;
+}
+
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

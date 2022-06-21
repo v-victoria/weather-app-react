@@ -1,0 +1,15 @@
+.DaylyForecastCol .week-day {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-align: center;
+}
+.DaylyForecastCol .week-temperature {
+  display: block;
+  font-weight: 900;
+  text-align: center;
+}
+.DaylyForecastCol .week-weather-img {
+  height: 8vmin;
+  margin: 0 auto;
+}

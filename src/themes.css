@@ -1,0 +1,71 @@
+/* Clear Theme */
+.text-color-clear {
+  color: #001d6e;
+}
+.degree-color-clear-hover:hover {
+  color: #001d6e;
+}
+.current-location-row-clear {
+  color: #e4e4e4;
+  background: #001d6e;
+}
+.background-color-clear {
+  background: linear-gradient(to bottom, rgb(30 109 217), rgb(219 233 255));
+}
+.border-color-clear {
+  border: 1px #001d6e solid;
+}
+
+/* Mostly Cloudy Theme */
+.text-color-mostly-cloudy {
+  color: #323643;
+}
+.degree-color-mostly-cloudy-hover:hover {
+  color: #323643;
+}
+.current-location-row-mostly-cloudy {
+  color: #93deff;
+  background: #323643;
+}
+.background-color-mostly-cloudy {
+  background: linear-gradient(180deg, #c9cbcc 0%, #bbdceb 67.19%, #a8d6ea 100%);
+}
+.border-color-mostly-cloudy {
+  border: 1px #323643 solid;
+}
+
+/* Cloudy Theme */
+.text-color-cloudy {
+  color: #323643;
+}
+.degree-color-cloudy-hover:hover {
+  color: #323643;
+}
+.current-location-row-cloudy {
+  color: #e4e4e4;
+  background: #323643;
+}
+.background-color-cloudy {
+  background: linear-gradient(180deg, #606470 0%, #f7f7f7 100%);
+}
+.border-color-cloudy {
+  border: 1px #323643 solid;
+}
+
+/* Night Theme */
+.text-color-night {
+  color: #eeeeee;
+}
+.degree-color-night-hover:hover {
+  color: #eeeeee;
+}
+.current-location-row-night {
+  color: #0f044c;
+  background: #afb0b7;
+}
+.background-color-night {
+  background: linear-gradient(180deg, #141e61 0%, #787a91 100%);
+}
+.border-color-night {
+  border: 1px #eeeeee solid;
+}
