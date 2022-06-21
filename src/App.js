@@ -9,7 +9,7 @@ function App() {
       <WeatherAppBlock />
       <div className="open-source-code-link">
         <a
-          href="https://github.com/v-victoria/Weather-App-SheCodes"
+          href="https://github.com/v-victoria/weather-app-react"
           target="_blank"
           rel="noopener noreferrer"
         >

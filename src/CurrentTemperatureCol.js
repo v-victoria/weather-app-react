@@ -1,12 +1,14 @@
 import React from "react";
 import "./CurrentTemperatureCol.css";
 
-export default function CurrentTemperatureCol() {
+export default function CurrentTemperatureCol(props) {
   return (
     <div className="CurrentTemperatureCol col">
-      <div className="line description">Mostly Cloudy</div>
+      <div className="line description">{props.weatherData.description}</div>
       <div className="line current-temperature">
-        <div className="col tempeture temp-value">12</div>
+        <div className="col tempeture temp-value">
+          {props.weatherData.temperature}
+        </div>
         <div className="col degree">
           <a
             href="/#"
