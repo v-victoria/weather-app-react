@@ -3,11 +3,11 @@ import React from "react";
 export default function CurrentWeatherIcon(props) {
   function importAll(r) {
     let icons = {};
-    icons = r.keys().map((item) => {
+    r.keys().map((item) => {
       let iconName = item.replace("./", "");
       iconName = iconName.replace(".svg", "");
       icons[iconName] = r(item);
-      return icons;
+      return iconName;
     });
 
     return icons;
