@@ -27,7 +27,7 @@ export default function WeatherAppBlock() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      iconUrl: response.data.weather[0].icon,
+      icon: response.data.weather[0].icon,
     });
 
     setLocationData({

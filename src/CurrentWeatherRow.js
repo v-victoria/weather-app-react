@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentTemperatureCol from "./CurrentTemperatureCol";
 import CurrentDetailsCol from "./CurrentDetailsCol";
-import CurrentWeatherIcon from "./CurrentWeatherIcon";
+import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeatherRow(props) {
   if (props.weatherData !== null) {
@@ -9,7 +9,9 @@ export default function CurrentWeatherRow(props) {
       <div className="CurrentWeatherRow line">
         <CurrentTemperatureCol weatherData={props.weatherData} />
         <CurrentDetailsCol weatherData={props.weatherData} />
-        <CurrentWeatherIcon weatherData={props.weatherData} />
+        <div className="col current-weather-col">
+          <WeatherIcon icon={props.weatherData.icon} />
+        </div>
       </div>
     );
   } else {
