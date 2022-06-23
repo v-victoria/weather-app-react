@@ -17,34 +17,34 @@ export default function WeatherAppBlock(props) {
   const [dailyForecastList, setDailyForecastList] = useState(null);
 
   useEffect(() => {
+    function setCurrentWeatherAndLocation(response) {
+      setWeatherData({
+        temperature: Math.round(response.data.main.temp),
+        maxTemperature: Math.round(response.data.main.temp_max),
+        minTemperature: Math.round(response.data.main.temp_min),
+        description: response.data.weather[0].description,
+        humidity: response.data.main.humidity,
+        wind: response.data.wind.speed,
+        icon: response.data.weather[0].icon,
+      });
+
+      setLocationData({
+        cityName: response.data.name,
+        country: fullCountryName(response.data.sys.country),
+        timezone: response.data.timezone,
+      });
+
+      let apiKey = "294b1233d0859b30eceddba0fee44100";
+      let lat = response.data.coord.lat;
+      let lon = response.data.coord.lon;
+      let apiUrlCurrentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+      axios.get(apiUrlCurrentWeather).then(setForecastWeather);
+    }
+
     let apiKey = "294b1233d0859b30eceddba0fee44100";
     let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(urlAPI).then(setCurrentWeatherAndLocation);
   }, [city]);
-
-  function setCurrentWeatherAndLocation(response) {
-    setWeatherData({
-      temperature: Math.round(response.data.main.temp),
-      maxTemperature: Math.round(response.data.main.temp_max),
-      minTemperature: Math.round(response.data.main.temp_min),
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon,
-    });
-
-    setLocationData({
-      cityName: response.data.name,
-      country: fullCountryName(response.data.sys.country),
-      timezone: response.data.timezone,
-    });
-
-    let apiKey = "294b1233d0859b30eceddba0fee44100";
-    let lat = response.data.coord.lat;
-    let lon = response.data.coord.lon;
-    let apiUrlCurrentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
-    axios.get(apiUrlCurrentWeather).then(setForecastWeather);
-  }
 
   function setForecastWeather(response) {
     let list = getForecastWeather(response);

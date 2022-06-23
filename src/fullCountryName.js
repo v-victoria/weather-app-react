@@ -1002,7 +1002,6 @@ export function fullCountryName(country) {
 
   countryList.every((element) => {
     if (element["alpha-2"] === country) {
-      console.log(element.name);
       countryFullName = element.name;
       return false;
     }
