@@ -5,6 +5,7 @@ import CurrentLocationRow from "./CurrentLocationRow";
 import CurrentWeatherRow from "./CurrentWeatherRow";
 import DaylyForecastRow from "./DaylyForecastRow";
 import { getForecastWeather } from "./getForecastWeather";
+import { fullCountryName } from "./fullCountryName";
 
 import SearchRow from "./SearchRow";
 
@@ -34,7 +35,7 @@ export default function WeatherAppBlock(props) {
 
     setLocationData({
       cityName: response.data.name,
-      country: response.data.sys.country,
+      country: fullCountryName(response.data.sys.country),
       timezone: response.data.timezone,
     });
 
