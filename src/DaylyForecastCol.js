@@ -1,20 +1,18 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
+
 import "./DaylyForecastCol.css";
 
-export default function DaylyForecastCol({ dayOfWeek, maxTemp, minTemp }) {
+export default function DaylyForecastCol(props) {
   return (
     <div className="DaylyForecastCol col">
-      <div className="line week-day">{dayOfWeek}</div>
+      <div className="line week-day">{props.dayOfWeek}</div>
       <div className="line week-temperature">
-        <span className="temp-value">{maxTemp}</span>° /
-        <span className="temp-value">{minTemp}</span>°
+        <span className="temp-value">{props.maxTemp}</span>° /
+        <span className="temp-value">{props.minTemp}</span>°
       </div>
       <div className="line">
-        <img
-          src={require("./weather-icons/02d.svg").default}
-          alt=""
-          className="week-weather-img"
-        />
+        <WeatherIcon icon={props.icon} forecast={true} />
       </div>
     </div>
   );

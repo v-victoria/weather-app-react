@@ -1,14 +1,19 @@
 import React from "react";
 import DaylyForecastCol from "./DaylyForecastCol";
 
-export default function DaylyForecastRow() {
-  return (
-    <div className="DaylyForecastRow line">
-      <DaylyForecastCol dayOfWeek="Sat. 18" maxTemp={16} minTemp={8} />
-      <DaylyForecastCol dayOfWeek="Sun. 19" maxTemp={16} minTemp={8} />
-      <DaylyForecastCol dayOfWeek="Mon. 20" maxTemp={20} minTemp={6} />
-      <DaylyForecastCol dayOfWeek="Tue. 21" maxTemp={20} minTemp={8} />
-      <DaylyForecastCol dayOfWeek="Wed. 22" maxTemp={18} minTemp={13} />
-    </div>
-  );
+export default function DaylyForecastRow({ dailyForecastList }) {
+  let daylyForecastRow = [];
+  for (let i = 0; i < 5; i++) {
+    daylyForecastRow[i] = (
+      <DaylyForecastCol
+        key={i}
+        dayOfWeek={dailyForecastList[i].date}
+        maxTemp={dailyForecastList[i].dayTemp}
+        minTemp={dailyForecastList[i].nightTemp}
+        icon={dailyForecastList[i].description}
+      />
+    );
+  }
+
+  return <div className="DaylyForecastRow line">{daylyForecastRow}</div>;
 }

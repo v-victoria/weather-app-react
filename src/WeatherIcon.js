@@ -17,5 +17,15 @@ export default function WeatherIcon(props) {
     require.context("./weather-icons", false, /\.(svg)$/)
   );
 
-  return <img src={icons[props.icon]} alt="" className="WeatherIcon" />;
+  if (props.forecast) {
+    return (
+      <img
+        src={icons[props.icon]}
+        alt=""
+        className="WeatherIcon week-weather-img"
+      />
+    );
+  } else {
+    return <img src={icons[props.icon]} alt="" className="WeatherIcon" />;
+  }
 }
