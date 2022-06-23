@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CurrentTemperatureCol.css";
+import TemperatureConversion from "./TemperatureConversion";
 
 export default function CurrentTemperatureCol(props) {
+  const [units, setUnits] = useState("metrics");
+
+  function setMetrics() {
+    setUnits("metrics");
+  }
+
+  function setImperial() {
+    setUnits("imperial");
+  }
+
   return (
     <div className="CurrentTemperatureCol col">
       <div className="line description">{props.weatherData.description}</div>
       <div className="line current-temperature">
         <div className="col tempeture temp-value">
-          {props.weatherData.temperature}
+          <TemperatureConversion
+            temperature={props.weatherData.temperature}
+            units={units}
+          />
         </div>
         <div className="col degree">
           <a
             href="/#"
             className="select-degree text-color-mostly-cloudy degree-color-mostly-cloudy-hover"
+            onClick={setMetrics}
           >
             ℃
           </a>
@@ -20,6 +35,7 @@ export default function CurrentTemperatureCol(props) {
           <a
             href="/#"
             className="not-select-degree degree-color-mostly-cloudy-hover"
+            onClick={setImperial}
           >
             ℉
           </a>

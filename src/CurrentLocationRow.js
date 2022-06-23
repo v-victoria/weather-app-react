@@ -42,19 +42,13 @@ export default function CurrentLocationRow(props) {
     return `${cityName}, ${country}`;
   }
 
-  if (props.locationData !== null) {
-    return (
-      <div className="CurrentLocationRow line current-location-row-mostly-cloudy">
-        <div className="col-1 current-location-icon">
-          <i className="fa-solid fa-location-dot"></i>
-        </div>
-        <div className="col-9 current-location-text">{displayCity()}</div>
-        <div className="col-2 time">{updateCurrentTime()}</div>
+  return (
+    <div className="CurrentLocationRow line current-location-row-mostly-cloudy">
+      <div className="col-1 current-location-icon">
+        <i className="fa-solid fa-location-dot"></i>
       </div>
-    );
-  } else {
-    return (
-      <div className="CurrentLocationRow line current-location-row-mostly-cloudy" />
-    );
-  }
+      <div className="col-9 current-location-text">{displayCity()}</div>
+      <div className="col-2 time">{updateCurrentTime()}</div>
+    </div>
+  );
 }

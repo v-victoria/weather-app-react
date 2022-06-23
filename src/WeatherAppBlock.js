@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import CurrentLocationRow from "./CurrentLocationRow";
 import CurrentWeatherRow from "./CurrentWeatherRow";
 import DaylyForecastRow from "./DaylyForecastRow";
 
-import "./SearchRow.css";
+import SearchRow from "./SearchRow";
 
-export default function WeatherAppBlock() {
-  let apiKey = "294b1233d0859b30eceddba0fee44100";
-  const [city, setCity] = useState(null);
+export default function WeatherAppBlock(props) {
+  const [inputCity, setInputCity] = useState(null);
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState(null);
   const [locationData, setLocationData] = useState(null);
 
-  if (city === null) {
-    setCity("London");
-    let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+  useEffect(() => {
+    let apiKey = "294b1233d0859b30eceddba0fee44100";
+    let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(urlAPI).then(showWeather);
-  }
+  }, [city]);
 
   function showWeather(response) {
+    console.log(response);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       maxTemperature: Math.round(response.data.main.temp_max),
@@ -37,50 +38,41 @@ export default function WeatherAppBlock() {
     });
   }
 
+  function saveExampleCity(event) {
+    setCity(event.target.innerHTML);
+  }
+
   function saveEnteredCityName(event) {
-    setCity(event.target.value);
+    setInputCity(event.target.value);
   }
 
-  function findSubmittedCity(event) {
+  function saveSubmittedCity(event) {
     event.preventDefault();
-    getAPIcall();
+    setCity(inputCity);
   }
 
-  function getAPIcall() {
-    let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    console.log(urlAPI);
-    axios.get(urlAPI).then(showWeather);
-  }
-  return (
-    <div className="WeatherAppBlock main-background text-color-mostly-cloudy background-color-mostly-cloudy">
-      <CurrentLocationRow locationData={locationData} />
-      <CurrentWeatherRow weatherData={weatherData} />
-      <DaylyForecastRow />
-
-      <div className="SearchRow line">
-        <div className="col city-example-col">
-          <span className="city-example">New York</span>
-          <span className="city-example">Pekin</span>
-          <span className="city-example">Sydney</span>
-        </div>
-        <div className="col">
-          <form onSubmit={findSubmittedCity}>
-            <input
-              type="search"
-              placeholder="Search City"
-              className="search-input form-control text-color-mostly-cloudy border-color-mostly-cloudy"
-              onChange={saveEnteredCityName}
-            />
-            <button
-              type="submit"
-              className="text-color-mostly-cloudy"
-              onClick={findSubmittedCity}
-            >
-              <i className="fa-solid fa-magnifying-glass-location"></i>
-            </button>
-          </form>
-        </div>
+  if (weatherData !== null) {
+    return (
+      <div className="WeatherAppBlock main-background text-color-mostly-cloudy background-color-mostly-cloudy">
+        <CurrentLocationRow locationData={locationData} />
+        <CurrentWeatherRow weatherData={weatherData} />
+        <DaylyForecastRow />
+        <SearchRow
+          saveExampleCity={saveExampleCity}
+          saveEnteredCityName={saveEnteredCityName}
+          saveSubmittedCity={saveSubmittedCity}
+        />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="WeatherAppBlock main-background text-color-mostly-cloudy background-color-mostly-cloudy">
+        <SearchRow
+          saveExampleCity={saveExampleCity}
+          saveEnteredCityName={saveEnteredCityName}
+          saveSubmittedCity={saveSubmittedCity}
+        />
+      </div>
+    );
+  }
 }

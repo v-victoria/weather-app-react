@@ -6,7 +6,7 @@ import "./themes.css";
 function App() {
   return (
     <div className="App">
-      <WeatherAppBlock />
+      <WeatherAppBlock defaultCity="Berlin" />
       <div className="open-source-code-link">
         <a
           href="https://github.com/v-victoria/weather-app-react"

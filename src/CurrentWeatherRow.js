@@ -4,17 +4,13 @@ import CurrentDetailsCol from "./CurrentDetailsCol";
 import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeatherRow(props) {
-  if (props.weatherData !== null) {
-    return (
-      <div className="CurrentWeatherRow line">
-        <CurrentTemperatureCol weatherData={props.weatherData} />
-        <CurrentDetailsCol weatherData={props.weatherData} />
-        <div className="col current-weather-col">
-          <WeatherIcon icon={props.weatherData.icon} />
-        </div>
+  return (
+    <div className="CurrentWeatherRow line">
+      <CurrentTemperatureCol weatherData={props.weatherData} />
+      <CurrentDetailsCol weatherData={props.weatherData} />
+      <div className="col current-weather-col">
+        <WeatherIcon icon={props.weatherData.icon} />
       </div>
-    );
-  } else {
-    return <div className="CurrentWeatherRow line" />;
-  }
+    </div>
+  );
 }
