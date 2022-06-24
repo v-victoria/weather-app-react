@@ -6,8 +6,9 @@ export default function TemperatureConversion(props) {
   let temperature = props.temperature;
 
   if (props.units === "metrics") {
+    return temperature;
   } else {
     temperature = celsiusToFahrenheit();
+    return temperature;
   }
-  return temperature;
 }

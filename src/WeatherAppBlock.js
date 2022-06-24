@@ -4,7 +4,9 @@ import axios from "axios";
 import CurrentLocationRow from "./CurrentLocationRow";
 import CurrentWeatherRow from "./CurrentWeatherRow";
 import DaylyForecastRow from "./DaylyForecastRow";
+import TemperatureProvider from "./TemperatureProvider";
 import { getForecastWeather } from "./getForecastWeather";
+import { getWeatherData } from "./getWeatherData";
 import { fullCountryName } from "./fullCountryName";
 
 import SearchRow from "./SearchRow";
@@ -18,15 +20,7 @@ export default function WeatherAppBlock(props) {
 
   useEffect(() => {
     function setCurrentWeatherAndLocation(response) {
-      setWeatherData({
-        temperature: Math.round(response.data.main.temp),
-        maxTemperature: Math.round(response.data.main.temp_max),
-        minTemperature: Math.round(response.data.main.temp_min),
-        description: response.data.weather[0].description,
-        humidity: response.data.main.humidity,
-        wind: response.data.wind.speed,
-        icon: response.data.weather[0].icon,
-      });
+      setWeatherData(getWeatherData(response));
 
       setLocationData({
         cityName: response.data.name,
@@ -41,15 +35,15 @@ export default function WeatherAppBlock(props) {
       axios.get(apiUrlCurrentWeather).then(setForecastWeather);
     }
 
+    function setForecastWeather(response) {
+      let list = getForecastWeather(response);
+      setDailyForecastList(list);
+    }
+
     let apiKey = "294b1233d0859b30eceddba0fee44100";
     let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(urlAPI).then(setCurrentWeatherAndLocation);
   }, [city]);
-
-  function setForecastWeather(response) {
-    let list = getForecastWeather(response);
-    setDailyForecastList(list);
-  }
 
   function saveExampleCity(event) {
     setCity(event.target.innerHTML);
@@ -72,8 +66,10 @@ export default function WeatherAppBlock(props) {
     return (
       <div className="WeatherAppBlock main-background text-color-mostly-cloudy background-color-mostly-cloudy">
         <CurrentLocationRow locationData={locationData} />
-        <CurrentWeatherRow weatherData={weatherData} />
-        <DaylyForecastRow dailyForecastList={dailyForecastList} />
+        <TemperatureProvider>
+          <CurrentWeatherRow weatherData={weatherData} />
+          <DaylyForecastRow dailyForecastList={dailyForecastList} />
+        </TemperatureProvider>
         <SearchRow
           saveExampleCity={saveExampleCity}
           saveEnteredCityName={saveEnteredCityName}
