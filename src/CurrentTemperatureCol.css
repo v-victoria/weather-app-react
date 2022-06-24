@@ -18,14 +18,13 @@
   font-size: 1.7em;
 }
 
+.CurrentTemperatureCol a {
+  text-decoration: none;
+}
+
 .CurrentTemperatureCol .not-select-degree {
   color: #7f7e7e;
-  text-decoration: none;
 }
 .CurrentTemperatureCol .not-select-degree:hover {
   cursor: pointer;
-}
-
-.CurrentTemperatureCol .select-degree {
-  text-decoration: none;
 }

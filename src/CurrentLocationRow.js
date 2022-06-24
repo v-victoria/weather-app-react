@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CurrentLocationRow.css";
+import { ThemeContext } from "./ThemeProvider";
 
 export default function CurrentLocationRow(props) {
+  const { theme } = useContext(ThemeContext);
+
   function updateCurrentTime() {
     let currentLocationDate = new Date();
 
@@ -43,7 +46,7 @@ export default function CurrentLocationRow(props) {
   }
 
   return (
-    <div className="CurrentLocationRow line current-location-row-mostly-cloudy">
+    <div className={"CurrentLocationRow line " + theme.currentLocationRow}>
       <div className="col-1 current-location-icon">
         <i className="fa-solid fa-location-dot"></i>
       </div>

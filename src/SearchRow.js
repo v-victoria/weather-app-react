@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SearchRow.css";
+import { ThemeContext } from "./ThemeProvider";
 
 export default function SearchRow({
   saveExampleCity,
   saveEnteredCityName,
   saveSubmittedCity,
 }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div className="SearchRow line">
       <div className="col city-example-col">
@@ -24,12 +27,17 @@ export default function SearchRow({
           <input
             type="search"
             placeholder="Search City"
-            className="search-input form-control text-color-mostly-cloudy border-color-mostly-cloudy"
+            className={
+              "search-input form-control " +
+              theme.textColor +
+              " " +
+              theme.borderColor
+            }
             onChange={saveEnteredCityName}
           />
           <button
             type="submit"
-            className="text-color-mostly-cloudy"
+            className={theme.textColor}
             onClick={saveSubmittedCity}
           >
             <i className="fa-solid fa-magnifying-glass-location"></i>

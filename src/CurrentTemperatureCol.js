@@ -1,30 +1,26 @@
 import React, { useState, useContext } from "react";
 import "./CurrentTemperatureCol.css";
 import TemperatureConversion from "./TemperatureConversion";
+import UnitSwitch from "./UnitSwitch";
 import { UnitsContext } from "./TemperatureProvider";
 
 export default function CurrentTemperatureCol(props) {
   const { units, setUnits } = useContext(UnitsContext);
-  let selectClassNames =
-    "select-degree text-color-mostly-cloudy degree-color-mostly-cloudy-hover";
-  let notSelectClassNames =
-    "not-select-degree degree-color-mostly-cloudy-hover";
 
-  const [metricsClassNames, setMetricsClassNames] = useState(selectClassNames);
-  const [imperialClassNames, setImperialClassNames] =
-    useState(notSelectClassNames);
+  const [metricStatus, setMetricStatus] = useState("active");
+  const [imperialStatus, setImperialStatus] = useState("non");
 
   function setMetrics(event) {
     event.preventDefault();
-    setMetricsClassNames(selectClassNames);
-    setImperialClassNames(notSelectClassNames);
+    setMetricStatus("active");
+    setImperialStatus("non");
     setUnits("metrics");
   }
 
   function setImperial(event) {
     event.preventDefault();
-    setMetricsClassNames(notSelectClassNames);
-    setImperialClassNames(selectClassNames);
+    setMetricStatus("non");
+    setImperialStatus("active");
     setUnits("imperial");
   }
 
@@ -39,12 +35,12 @@ export default function CurrentTemperatureCol(props) {
           />
         </div>
         <div className="col degree">
-          <a href="/#" className={metricsClassNames} onClick={setMetrics}>
-            ℃
+          <a href="/#" onClick={setMetrics}>
+            <UnitSwitch status={metricStatus} value="℃" />
           </a>
           <hr />
-          <a href="/#" className={imperialClassNames} onClick={setImperial}>
-            ℉
+          <a href="/#" onClick={setImperial}>
+            <UnitSwitch status={imperialStatus} value="℉" />
           </a>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import ReactLoading from "react-loading";
@@ -9,10 +9,14 @@ import TemperatureProvider from "./TemperatureProvider";
 import { getForecastWeather } from "./getForecastWeather";
 import { getWeatherData } from "./getWeatherData";
 import { fullCountryName } from "./fullCountryName";
+import { ThemeContext } from "./ThemeProvider";
+import { setCurrentTheme } from "./setCurrentTheme";
 
 import SearchRow from "./SearchRow";
 
 export default function WeatherAppBlock(props) {
+  const { theme, setTheme } = useContext(ThemeContext);
+
   const [inputCity, setInputCity] = useState(null);
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState(null);
@@ -21,6 +25,7 @@ export default function WeatherAppBlock(props) {
 
   useEffect(() => {
     function setCurrentWeatherAndLocation(response) {
+      setTheme(setCurrentTheme(response.data.weather[0].icon));
       setWeatherData(getWeatherData(response));
       setLocationData({
         cityName: response.data.name,
@@ -40,7 +45,7 @@ export default function WeatherAppBlock(props) {
     let apiKey = "294b1233d0859b30eceddba0fee44100";
     let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(urlAPI).then(setCurrentWeatherAndLocation);
-  }, [city]);
+  }, [city, setTheme]);
 
   function saveExampleCity(event) {
     setCity(event.target.innerHTML);
@@ -61,7 +66,14 @@ export default function WeatherAppBlock(props) {
     dailyForecastList !== null
   ) {
     return (
-      <div className="WeatherAppBlock main-background text-color-mostly-cloudy background-color-mostly-cloudy">
+      <div
+        className={
+          "WeatherAppBlock main-background " +
+          theme.textColor +
+          " " +
+          theme.backgroundColor
+        }
+      >
         <CurrentLocationRow locationData={locationData} />
         <TemperatureProvider>
           <CurrentWeatherRow weatherData={weatherData} />
@@ -76,7 +88,14 @@ export default function WeatherAppBlock(props) {
     );
   } else {
     return (
-      <div className="WeatherAppBlock d-flex flex-column justify-content-between main-background text-color-mostly-cloudy background-color-mostly-cloudy">
+      <div
+        className={
+          "WeatherAppBlock d-flex flex-column justify-content-between main-background " +
+          theme.textColor +
+          " " +
+          theme.backgroundColor
+        }
+      >
         <div className="align-self-center mt-auto mb-auto">
           <ReactLoading
             type="bubbles"
