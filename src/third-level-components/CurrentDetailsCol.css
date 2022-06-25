@@ -1,6 +1,11 @@
+.CurrentDetailsCol {
+  margin: 1vmin;
+  font-weight: 600;
+}
 .CurrentDetailsCol .current-weather-details {
   padding-left: 2vmin;
 }
 .CurrentDetailsCol .current-weather-details-space {
   padding: 3.5vmin 0 0 2vmin;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

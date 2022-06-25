@@ -1,8 +1,4 @@
-span {
-  padding: 0 0 0 0.5vmin;
-}
-
-.main-background {
+.App .main-background {
   width: 88vmin;
   height: 68vmin;
   margin: 1vmin auto;
@@ -12,7 +8,7 @@ span {
     inset -3px -3px 5px 0 rgb(1 30 111 / 13%), 0 0 8px 1px rgb(1 30 111 / 25%);
   border-radius: 15px;
 }
-.open-source-code-link {
+.App .open-source-code-link {
   width: 88vmin;
   margin: 1vmin auto;
   font-size: 1.7vmin;
@@ -21,37 +17,6 @@ span {
 
 .line {
   display: flex;
-}
-
-.CurrentLocationRow {
-  height: 9vmin;
-  font-size: 3.7em;
-  border-radius: 15px 15px 0 0;
-}
-
-/* Current Weather Row */
-.CurrentWeatherRow {
-  height: 25vmin;
-  margin: 3vmin 2vmin 2vmin 2vmin;
-  font-size: 3.4em;
-}
-
-.CurrentTemperatureCol,
-.CurrentDetailsCol {
-  margin: 1vmin;
-  font-weight: 600;
-}
-
-/* Dayly Forecast Row */
-.DaylyForecastRow {
-  height: 18vmin;
-  margin: 0 1vmin;
-  font-size: 3.5em;
-}
-
-/* Search Row */
-.SearchRow {
-  margin: 1vmin auto;
 }
 
 /* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

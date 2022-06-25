@@ -1,4 +1,5 @@
 import React from "react";
+import "./DaylyForecastRow.css";
 import DaylyForecastCol from "../third-level-components/DaylyForecastCol";
 
 export default function DaylyForecastRow({ dailyForecastList }) {
@@ -17,3 +18,4 @@ export default function DaylyForecastRow({ dailyForecastList }) {
 
   return <div className="DaylyForecastRow line">{daylyForecastRow}</div>;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

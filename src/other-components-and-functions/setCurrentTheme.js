@@ -31,3 +31,4 @@ export function setCurrentTheme(imgNumber) {
     return getCurrentTheme(3);
   }
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

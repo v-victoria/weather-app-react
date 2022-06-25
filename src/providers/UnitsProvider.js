@@ -13,3 +13,4 @@ export default function TemperatureProvider({ children }) {
     <UnitsContext.Provider value={value}>{children}</UnitsContext.Provider>
   );
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

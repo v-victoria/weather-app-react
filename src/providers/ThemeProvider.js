@@ -14,3 +14,4 @@ export default function ThemeProvider({ children }) {
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

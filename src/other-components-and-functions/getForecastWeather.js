@@ -30,3 +30,4 @@ export function getForecastWeather(response) {
   }
   return dailyForecastList;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

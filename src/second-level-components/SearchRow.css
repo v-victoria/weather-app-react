@@ -1,3 +1,8 @@
+/* Search Row */
+.SearchRow {
+  margin: 1vmin auto;
+}
+
 .SearchRow button {
   position: relative;
   top: -4.8vmin;
@@ -34,3 +39,4 @@
   background: rgba(255, 255, 255, 0.6);
   border-radius: 3vmin;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

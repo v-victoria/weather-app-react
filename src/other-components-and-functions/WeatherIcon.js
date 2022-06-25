@@ -21,11 +21,18 @@ export default function WeatherIcon(props) {
     return (
       <img
         src={icons[props.icon]}
-        alt=""
+        alt={props.description}
         className="WeatherIcon week-weather-img"
       />
     );
   } else {
-    return <img src={icons[props.icon]} alt="" className="WeatherIcon" />;
+    return (
+      <img
+        src={icons[props.icon]}
+        alt={props.description}
+        className="WeatherIcon"
+      />
+    );
   }
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

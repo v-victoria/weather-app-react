@@ -7,16 +7,22 @@ export default function UnitSwitch(props) {
   if (props.status === "active") {
     return (
       <span
-        className={"select-degree " + theme.textColor + " " + theme.degreeColor}
+        className={
+          "UnitSwitch select-degree " +
+          theme.textColor +
+          " " +
+          theme.degreeColor
+        }
       >
         {props.value}
       </span>
     );
   } else {
     return (
-      <span className={"not-select-degree " + theme.degreeColor}>
+      <span className={"UnitSwitch not-select-degree " + theme.degreeColor}>
         {props.value}
       </span>
     );
   }
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

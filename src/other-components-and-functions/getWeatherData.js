@@ -10,3 +10,4 @@ export function getWeatherData(response) {
   };
   return weatherData;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

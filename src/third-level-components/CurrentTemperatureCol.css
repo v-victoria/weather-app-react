@@ -1,3 +1,8 @@
+.CurrentTemperatureCol {
+  margin: 1vmin;
+  font-weight: 600;
+}
+
 .CurrentTemperatureCol hr {
   margin: 0;
 }
@@ -28,3 +33,4 @@
 .CurrentTemperatureCol .not-select-degree:hover {
   cursor: pointer;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

@@ -1,5 +1,9 @@
 /* Location Row */
-
+.CurrentLocationRow {
+  height: 9vmin;
+  font-size: 3.7em;
+  border-radius: 15px 15px 0 0;
+}
 .CurrentLocationRow .current-location-icon {
   padding: 3.2vmin 0 0 4vmin;
 }
@@ -12,3 +16,4 @@
   padding: 0 0 0.2vmin 2.5vmin;
   align-self: end;
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

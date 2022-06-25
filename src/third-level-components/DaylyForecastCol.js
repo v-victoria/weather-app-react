@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import WeatherIcon from "../other-components-and-functions/WeatherIcon";
-import TemperatureConversion from "../other-components-and-functions/TemperatureConversion";
+import { temperatureConversion } from "../other-components-and-functions/temperatureConversion";
 import { UnitsContext } from "../providers/UnitsProvider";
 
 import "./DaylyForecastCol.css";
@@ -12,15 +12,8 @@ export default function DaylyForecastCol(props) {
     <div className="DaylyForecastCol col">
       <div className="line week-day">{props.dayOfWeek}</div>
       <div className="line week-temperature">
-        <span className="temp-value">
-          <TemperatureConversion temperature={props.maxTemp} units={units} />
-        </span>
-        ° /
-        <span className="temp-value">
-          {" "}
-          <TemperatureConversion temperature={props.minTemp} units={units} />
-        </span>
-        °
+        <span>{temperatureConversion(units, props.maxTemp)}</span>° /
+        <span> {temperatureConversion(units, props.minTemp)}</span>°
       </div>
       <div className="line">
         <WeatherIcon icon={props.icon} forecast={true} />
@@ -28,3 +21,4 @@ export default function DaylyForecastCol(props) {
     </div>
   );
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

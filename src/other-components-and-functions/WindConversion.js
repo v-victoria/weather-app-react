@@ -1,4 +1,4 @@
-export default function WindConversion(props) {
+export function windConversion(units, wind) {
   function windLenghtCheck(windValue) {
     let wind = windValue;
     wind = wind.toFixed(1);
@@ -10,9 +10,10 @@ export default function WindConversion(props) {
     return wind;
   }
 
-  if (props.units === "metric") {
-    return `${windLenghtCheck(props.wind * 3.6)} km/h`;
+  if (units === "metric") {
+    return `${windLenghtCheck(wind * 3.6)} km/h`;
   } else {
-    return `${windLenghtCheck(props.wind * 2.3)} mi/h`;
+    return `${windLenghtCheck(wind * 2.3)} mi/h`;
   }
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */

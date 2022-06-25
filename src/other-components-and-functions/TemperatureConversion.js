@@ -1,14 +1,15 @@
-export default function TemperatureConversion(props) {
+export function temperatureConversion(units, temp) {
   function celsiusToFahrenheit() {
-    return Math.round((props.temperature * 9) / 5 + 32);
+    return Math.round((temp * 9) / 5 + 32);
   }
 
-  let temperature = props.temperature;
+  let temperature = temp;
 
-  if (props.units === "metric") {
+  if (units === "metric") {
     return temperature;
   } else {
     temperature = celsiusToFahrenheit();
     return temperature;
   }
 }
+/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */
