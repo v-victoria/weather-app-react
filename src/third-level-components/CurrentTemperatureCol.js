@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import "./CurrentTemperatureCol.css";
-import TemperatureConversion from "./TemperatureConversion";
-import UnitSwitch from "./UnitSwitch";
-import { UnitsContext } from "./TemperatureProvider";
+import TemperatureConversion from "../other-components-and-functions/TemperatureConversion";
+import UnitSwitch from "../other-components-and-functions/UnitSwitch";
+import { UnitsContext } from "../providers/UnitsProvider";
 
 export default function CurrentTemperatureCol(props) {
   const { units, setUnits } = useContext(UnitsContext);
@@ -10,11 +10,11 @@ export default function CurrentTemperatureCol(props) {
   const [metricStatus, setMetricStatus] = useState("active");
   const [imperialStatus, setImperialStatus] = useState("non");
 
-  function setMetrics(event) {
+  function setMetric(event) {
     event.preventDefault();
     setMetricStatus("active");
     setImperialStatus("non");
-    setUnits("metrics");
+    setUnits("metric");
   }
 
   function setImperial(event) {
@@ -35,7 +35,7 @@ export default function CurrentTemperatureCol(props) {
           />
         </div>
         <div className="col degree">
-          <a href="/#" onClick={setMetrics}>
+          <a href="/#" onClick={setMetric}>
             <UnitSwitch status={metricStatus} value="℃" />
           </a>
           <hr />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getCurrentTheme } from "./getCurrentTheme";
+import { getCurrentTheme } from "../other-components-and-functions/getCurrentTheme";
 
 export const ThemeContext = React.createContext();
 

@@ -937,7 +937,7 @@ export function fullCountryName(country) {
       "alpha-2": "AE",
     },
     {
-      name: "United Kingdom of Great Britain and Northern Ireland",
+      name: "United Kingdom",
       "alpha-2": "GB",
     },
     {

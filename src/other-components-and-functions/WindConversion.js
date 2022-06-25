@@ -10,7 +10,7 @@ export default function WindConversion(props) {
     return wind;
   }
 
-  if (props.units === "metrics") {
+  if (props.units === "metric") {
     return `${windLenghtCheck(props.wind * 3.6)} km/h`;
   } else {
     return `${windLenghtCheck(props.wind * 2.3)} mi/h`;

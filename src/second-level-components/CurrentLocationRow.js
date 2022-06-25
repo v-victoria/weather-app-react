@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./CurrentLocationRow.css";
-import { ThemeContext } from "./ThemeProvider";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 export default function CurrentLocationRow(props) {
   const { theme } = useContext(ThemeContext);

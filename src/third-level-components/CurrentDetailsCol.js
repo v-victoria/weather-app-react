@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import TemperatureConversion from "./TemperatureConversion";
-import WindConversion from "./WindConversion";
-import { UnitsContext } from "./TemperatureProvider";
+import TemperatureConversion from "../other-components-and-functions/TemperatureConversion";
+import WindConversion from "../other-components-and-functions/WindConversion";
+import { UnitsContext } from "../providers/UnitsProvider";
 
 import "./CurrentDetailsCol.css";
 

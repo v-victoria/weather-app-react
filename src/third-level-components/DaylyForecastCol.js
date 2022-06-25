@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import WeatherIcon from "./WeatherIcon";
-import TemperatureConversion from "./TemperatureConversion";
-import { UnitsContext } from "./TemperatureProvider";
+import WeatherIcon from "../other-components-and-functions/WeatherIcon";
+import TemperatureConversion from "../other-components-and-functions/TemperatureConversion";
+import { UnitsContext } from "../providers/UnitsProvider";
 
 import "./DaylyForecastCol.css";
 

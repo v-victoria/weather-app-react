@@ -1,64 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react";
 
 import ReactLoading from "react-loading";
-import CurrentLocationRow from "./CurrentLocationRow";
-import CurrentWeatherRow from "./CurrentWeatherRow";
-import DaylyForecastRow from "./DaylyForecastRow";
-import TemperatureProvider from "./TemperatureProvider";
-import { getForecastWeather } from "./getForecastWeather";
-import { getWeatherData } from "./getWeatherData";
-import { fullCountryName } from "./fullCountryName";
-import { ThemeContext } from "./ThemeProvider";
-import { setCurrentTheme } from "./setCurrentTheme";
+import CurrentLocationRow from "./second-level-components/CurrentLocationRow";
+import CurrentWeatherRow from "./second-level-components/CurrentWeatherRow";
+import DaylyForecastRow from "./second-level-components/DaylyForecastRow";
+import UnitsProvider from "./providers/UnitsProvider";
 
-import SearchRow from "./SearchRow";
+import { ThemeContext } from "./providers/ThemeProvider";
 
-export default function WeatherAppBlock(props) {
-  const { theme, setTheme } = useContext(ThemeContext);
+import SearchRow from "./second-level-components/SearchRow";
 
-  const [inputCity, setInputCity] = useState(null);
-  const [city, setCity] = useState(props.defaultCity);
+export default function WeatherAppBlock() {
+  const { theme } = useContext(ThemeContext);
+
   const [weatherData, setWeatherData] = useState(null);
   const [locationData, setLocationData] = useState(null);
   const [dailyForecastList, setDailyForecastList] = useState(null);
-
-  useEffect(() => {
-    function setCurrentWeatherAndLocation(response) {
-      setTheme(setCurrentTheme(response.data.weather[0].icon));
-      setWeatherData(getWeatherData(response));
-      setLocationData({
-        cityName: response.data.name,
-        country: fullCountryName(response.data.sys.country),
-        timezone: response.data.timezone,
-      });
-      let apiKey = "294b1233d0859b30eceddba0fee44100";
-      let lat = response.data.coord.lat;
-      let lon = response.data.coord.lon;
-      let apiUrlCurrentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
-      axios.get(apiUrlCurrentWeather).then(setForecastWeather);
-    }
-    function setForecastWeather(response) {
-      let list = getForecastWeather(response);
-      setDailyForecastList(list);
-    }
-    let apiKey = "294b1233d0859b30eceddba0fee44100";
-    let urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(urlAPI).then(setCurrentWeatherAndLocation);
-  }, [city, setTheme]);
-
-  function saveExampleCity(event) {
-    setCity(event.target.innerHTML);
-  }
-
-  function saveEnteredCityName(event) {
-    setInputCity(event.target.value);
-  }
-
-  function saveSubmittedCity(event) {
-    event.preventDefault();
-    setCity(inputCity);
-  }
 
   if (
     weatherData !== null &&
@@ -75,14 +32,15 @@ export default function WeatherAppBlock(props) {
         }
       >
         <CurrentLocationRow locationData={locationData} />
-        <TemperatureProvider>
+        <UnitsProvider>
           <CurrentWeatherRow weatherData={weatherData} />
           <DaylyForecastRow dailyForecastList={dailyForecastList} />
-        </TemperatureProvider>
+        </UnitsProvider>
         <SearchRow
-          saveExampleCity={saveExampleCity}
-          saveEnteredCityName={saveEnteredCityName}
-          saveSubmittedCity={saveSubmittedCity}
+          setWeatherData={setWeatherData}
+          setLocationData={setLocationData}
+          setDailyForecastList={setDailyForecastList}
+          defaultCity="Berlin"
         />
       </div>
     );
@@ -105,9 +63,10 @@ export default function WeatherAppBlock(props) {
           />
         </div>
         <SearchRow
-          saveExampleCity={saveExampleCity}
-          saveEnteredCityName={saveEnteredCityName}
-          saveSubmittedCity={saveSubmittedCity}
+          setWeatherData={setWeatherData}
+          setLocationData={setLocationData}
+          setDailyForecastList={setDailyForecastList}
+          defaultCity="Berlin"
         />
       </div>
     );

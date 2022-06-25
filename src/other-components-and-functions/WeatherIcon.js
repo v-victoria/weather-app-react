@@ -14,7 +14,7 @@ export default function WeatherIcon(props) {
   }
 
   const icons = importAll(
-    require.context("./weather-icons", false, /\.(svg)$/)
+    require.context("../weather-icons", false, /\.(svg)$/)
   );
 
   if (props.forecast) {

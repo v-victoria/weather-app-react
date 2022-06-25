@@ -1,7 +1,7 @@
 import React from "react";
-import CurrentTemperatureCol from "./CurrentTemperatureCol";
-import CurrentDetailsCol from "./CurrentDetailsCol";
-import WeatherIcon from "./WeatherIcon";
+import CurrentTemperatureCol from "../third-level-components/CurrentTemperatureCol";
+import CurrentDetailsCol from "../third-level-components/CurrentDetailsCol";
+import WeatherIcon from "../other-components-and-functions/WeatherIcon";
 
 export default function CurrentWeatherRow(props) {
   return (

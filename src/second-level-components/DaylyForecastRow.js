@@ -1,5 +1,5 @@
 import React from "react";
-import DaylyForecastCol from "./DaylyForecastCol";
+import DaylyForecastCol from "../third-level-components/DaylyForecastCol";
 
 export default function DaylyForecastRow({ dailyForecastList }) {
   let daylyForecastRow = [];

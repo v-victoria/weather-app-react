@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeProvider";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 export default function UnitSwitch(props) {
   const { theme } = useContext(ThemeContext);
