@@ -15,6 +15,7 @@ function App() {
             href="https://github.com/v-victoria/weather-app-react"
             target="_blank"
             rel="noopener noreferrer"
+            title="Link to my GitHub"
           >
             Open-source code
           </a>
