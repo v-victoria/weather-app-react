@@ -12,8 +12,8 @@ export default function DaylyForecastCol(props) {
     <div className="DaylyForecastCol col">
       <div className="line week-day">{props.dayOfWeek}</div>
       <div className="line week-temperature">
-        <span>{temperatureConversion(units, props.maxTemp)}</span>° /
-        <span> {temperatureConversion(units, props.minTemp)}</span>°
+        {temperatureConversion(units, props.maxTemp)}° /{" "}
+        {temperatureConversion(units, props.minTemp)}°
       </div>
       <div className="line">
         <WeatherIcon icon={props.icon} forecast={true} />
@@ -21,4 +21,3 @@ export default function DaylyForecastCol(props) {
     </div>
   );
 }
-/* Free to use animated SVG weather icons. Handcrafted by [Bas Milius](https://bas.dev). */
